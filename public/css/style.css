@@ -5,6 +5,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: url(../imgs/welcome-background.jpg);
+    background-repeat:  no-repeat;     /* 画像の繰り返しを指定  */ 
+    background-position: center;
+    margin: 0;    /* 多分この記述いらん */
+    padding: 0;
+                    
+}
+.welcome-header{
+    font-family:  "Hannari";
 }
 
 .welcome-body{
@@ -15,11 +24,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+   
 }
 .welcome-main{
     
     border: 2px;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+
 }
 .welcome_background-text {
     border:  solid 1px;                             /* 枠線指定 */

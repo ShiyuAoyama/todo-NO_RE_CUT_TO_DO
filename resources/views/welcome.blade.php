@@ -18,11 +18,11 @@
         <div class="welcome-wrapper">
             {{-- <div class="welcome_background-main"> --}}
                 <div class="welcome_backgroung-text">
-                    <img src="./public/imgs/welcome-background.jpg" alt="">
+                    {{-- <img src="./public/imgs/welcome-background.jpg" alt=""> --}}
                 </div>
-            
-            <h1>ようこそ私たちのアプリへ</h1>
-             
+            <h1 class=welcome-header>●●へようこそ</h1>
+                <p>自分だけのオリジナルToDoリストを作成して、すべてのプロジェクトを一箇所でで管理しましょう。<br>
+                世界シェア率<strong>Nomber.1</strong></p>
                  <div class="welcome-body">
                    @if (Route::has('login'))
                        <div class="welcome-main">
