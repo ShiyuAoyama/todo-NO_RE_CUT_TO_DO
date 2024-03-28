@@ -1,0 +1,15 @@
+.profile_title{
+    display: flex;
+    justify-content: center;
+}
+.profile_input{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.profile_input > label{
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
