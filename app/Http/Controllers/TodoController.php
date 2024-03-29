@@ -12,6 +12,13 @@ class TodoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
+    public function show($id)
+    {
+        $todo = Todo::with('task')->where('id', $id)->first();
+        return view('todos.show', compact('todo'));
+    }
+
+
     // public function store(Request $request)
     public function store(Request $request, Task $task)
     {
