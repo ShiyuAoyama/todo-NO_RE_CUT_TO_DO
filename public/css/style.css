@@ -17,7 +17,7 @@
 }
 
 .welcome-body{
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     width: 300px;
     height: 300px;
     display: flex;
@@ -50,3 +50,33 @@
 }
 /* background-imageは下記のように指定 */
 
+/* .edit-mainbox{
+    margin-top: 300px;
+} */
+.welcome-wrapper > *{
+    backdrop-filter: blur(10px);
+}
+
+.show-custom-form * {
+    box-sizing: border-box;
+}
+
+.show-custom-form > div {
+    width: 100%;
+}
+
+.show-custom-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+main:has(.edit-mainbox) {
+    margin: auto;
+    top: 0;
+    height: 310px;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
