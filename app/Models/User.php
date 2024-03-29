@@ -42,4 +42,15 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    // 1人のユーザーは2つ以上のtodoを持つ、「一対多」の関係
+    public function todos()
+    {
+        return $this->hasMany(Todo::class);
+    }
 }
