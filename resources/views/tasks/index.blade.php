@@ -72,7 +72,7 @@
                                           <div class="dropdown-divider"></div>
                                           <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteTodoModal{{ $todo->id }}">Delete</a></li>
                                           <div class="dropdown-divider"></div>
-                                          <li><a href="{{ route('tasks.show', $todo->id) }}" class="dropdown-item">Detail</a></li>
+                                          <li><a href="{{ route('tasks.todo.show', $todo->id) }}" class="dropdown-item">Detail</a></li>
                                       </ul>
                                   </div>
                               </div>

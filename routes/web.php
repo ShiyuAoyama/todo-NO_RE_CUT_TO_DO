@@ -49,6 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::put('/tasks/{id}', [TaskController::class, 'update'])->name('tasks.update');
     Route::delete('/tasks/{id}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 
+    Route::get('tasks/todo/{id}', [TodoController::class, 'show'])->name('tasks.todo.show');
     Route::post('tasks/todos', [TodoController::class, 'store'])->name('tasks.todos.store');
     Route::put('tasks/todos/{id}', [TodoController::class, 'update'])->name('tasks.todos.update');
     Route::delete('tasks/todos/{id}', [TodoController::class, 'destroy'])->name('tasks.todos.destroy');
