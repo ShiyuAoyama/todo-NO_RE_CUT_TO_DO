@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
@@ -33,9 +34,10 @@ class TaskController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        return view('tasks.show');
+        $task = Task::find($id);
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -51,14 +53,15 @@ class TaskController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Task::destroy($id);
+        return redirect()->route('home');
     }
 }
