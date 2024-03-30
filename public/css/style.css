@@ -1,30 +1,76 @@
 .welcome-wrapper{
-    width: 100vw;
+    /* width: 100vw; */
+    max-width: 100%; /* ビューポートの幅に合わせる */
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../imgs/welcome-background.jpg);
+    background-image: url(../imgs/welcome-background2.jpg);
     background-repeat:  no-repeat;     /* 画像の繰り返しを指定  */ 
     background-position: center;
     margin: 0;    /* 多分この記述いらん */
-    padding: 0;
+    /* padding: 0; */
+    /* background-size: contain; */
+    background-size: cover; /* 背景画像を要素にフィットさせる */
+    padding: 20px; /* 適切な余白を設定してください */
+    box-sizing: border-box; /* パディングを要素のサイズに含める */
                     
 }
 .welcome-header{
     font-family:  "Hannari";
+    margin-top: 10px;
+    color: white;
 }
 
 .welcome-body{
     /* background-color: aquamarine; */
     width: 300px;
-    height: 300px;
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: auto;
+    /* background-color: rgba(255,255,255,10%);
+    backdrop-filter: blur(10px); */
+   background-color: rgba(255, 255, 255, 0.7);
    
+   
+   
+}
+
+.welcome-loginbox{
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    font-family: 'Anton', sans-serif;
+}
+
+.welcome-registerbox{
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 30px;
+    font-family: 'Anton', sans-serif;
+}
+.welcome-content{
+    font-size: 20px;
+    color: white;
+    margin: 20px;
+    font-family: "Hannari";
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.welcome-content strong {
+    display: inline-block; /* strong要素を中央に配置 */
+}
+.welcome-mainmargin{
+    margin: 0;
+    padding: 35px;
 }
 .welcome-main{
     
@@ -53,9 +99,9 @@
 /* .edit-mainbox{
     margin-top: 300px;
 } */
-.welcome-wrapper > *{
+/* .welcome-wrapper > *{
     backdrop-filter: blur(10px);
-}
+} */
 
 .show-custom-form * {
     box-sizing: border-box;
