@@ -2,7 +2,7 @@
   <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="edittaskModalLabel{{ $task->id }}">目標の編集</h5>
+              <h5 class="modal-title" id="edittaskModalLabel{{ $task->id }}">Edit Category</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
           </div>
           <form action="{{ route('tasks.update', $task->id) }}" method="post">
@@ -12,7 +12,7 @@
                   <input type="text" class="form-control" name="title" value="{{ $task->title }}">
               </div>
               <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">更新</button>
+                  <button type="submit" class="btn btn-primary">Update</button>
               </div>   
           </form>             
       </div>
