@@ -18,7 +18,7 @@
          <div class="d-flex mb-3">
              <a href="#" class="link-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#addTaskModal">
                  <div class="d-flex align-items-center">
-                     <span class="fs-5 fw-bold">＋</span>&nbsp;Add New Task
+                     <span class="fs-5 fw-bold">＋</span>&nbsp;Add New Category
                  </div>
              </a>
          </div>
@@ -43,7 +43,7 @@
                             <a href="#" class="px-2 fs-5 fw-bold link-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#addTodoModal{{ $task->id }}">＋</a>
                               <div class="dropdown">
                                   {{-- <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none" id="dropdownGoalMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a> --}}
-                                  <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none menu-icon" id="dropdowntaskMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a>
+                                  <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none menu-icon" id="dropdowntaskMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
                                   <ul class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="dropdowntaskMenuLink">
                                       <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edittaskModal{{ $task->id }}">Edit</a>
                                     </li>
@@ -72,11 +72,11 @@
                                           <div class="dropdown-divider"></div>
                                           <li><a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#deleteTodoModal{{ $todo->id }}">Delete</a></li>
                                           <div class="dropdown-divider"></div>
-                                          <li><a href="{{ route('tasks.todo.show', $todo->id) }}" class="dropdown-item">Detail</a></li>
+                                          <li><a href="{{ route('tasks.todo.show', $todo->id) }}" class="dropdown-item">More Detail</a></li>
                                       </ul>
                                   </div>
                               </div>
-                              <h6 class="card-subtitle ms-1 mb-1 text-muted">{{ $todo->created_at }}</h6>
+                              <h6 class="card-subtitle ms-1 mb-1 text-muted">Date：{{ $todo->created_at->format('Y-m-d') }}</h6>
                           </div>
                       </div>
                   @endforeach
