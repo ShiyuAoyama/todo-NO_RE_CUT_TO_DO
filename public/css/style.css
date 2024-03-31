@@ -127,6 +127,11 @@
     margin-top: 100px;
 }
 
+.show-image{
+    width: 428px!important;
+    height: 284px!important;
+    object-fit: cover;
+}
 .show-info-box > * {
     width: 50%;
 }

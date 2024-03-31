@@ -22,7 +22,12 @@
   <div class="container">
       <div class="row justify-content-center">
           <div class="col-md-8 show-info-box">
-            <img class=" mt-3" src="{{ asset('imgs/welcome-background2.jpg') }}" alt="">
+            @if($todo->task->image)
+              <img class="mt-3 show-image" src="{{ asset('storage/images/' . $todo->task->image) }}" alt="" />
+            @else
+              <img class=" mt-3 show-image" src="{{ asset('imgs/welcome-background2.jpg') }}" alt="" />
+            @endif
+
               <div class="card mt-3">
                   <div class="card-header">
                       <h5>TITLE： {{ $todo->task->title }}</h5>
@@ -81,7 +86,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{ route('tasks.todos.updateContent', $todo->id) }}" class="show-custom-form">
+        <form method="post" action="{{ route('tasks.todos.updateContent', $todo->id) }}" class="show-custom-form" enctype="multipart/form-data">
           @csrf
           @method('patch')
           <div class="mb-3">
@@ -92,6 +97,17 @@
             <label for="exampleInputPassword1" class="form-label">Content</label>
             <input type="text" class="form-control" id="exampleInputPassword1" name="content" value="{{ $todo->content }}">
           </div>
+
+          <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" name="image" value="{{ $todo->task->image }}" />
+            @if($todo->task->image)
+            <img id="previewImage" class="mt-3" src="{{ asset('storage/images/' . $todo->task->image) }}" alt="" style="width: 100%; height: 250px; object-fit: contain" />
+            @else
+              <img id="previewImage" class="mt-3" src="{{ asset('imgs/welcome-background2.jpg') }}" alt="" style="width: 100%; height: 250px; object-fit: contain" />
+            @endif
+          </div>
+          
           <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
@@ -126,6 +142,22 @@
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
+
+  <script>
+    document.getElementById('image').addEventListener('change', function(event) {
+      console.log("test")
+      var input = event.target
+      var reader = new FileReader()
+
+      reader.onload = function() {
+        var dataURL = reader.result
+        var img = document.getElementById('previewImage')
+        img.src = dataURL
+      }
+
+      reader.readAsDataURL(input.files[0])
+    })
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 </body>

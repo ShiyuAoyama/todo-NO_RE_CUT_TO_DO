@@ -85,6 +85,12 @@ class TodoController extends Controller
         $todo->content = $request->input('content');
         $todo->update();
 
+        if($request->hasFile('image')) {
+            $imageName = $request->file('image')->getClientOriginalName();
+            $request->image->move(public_path('storage/images'), $imageName);
+            $task->image = $imageName;
+        }
+
         $task->title = $request->input('title');
         $task->update();
 
