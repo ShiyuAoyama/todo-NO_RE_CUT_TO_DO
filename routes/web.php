@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Auth;
@@ -57,3 +58,7 @@ Route::middleware('auth')->group(function () {
 
 // Namiki
 // Route::resource('tasks.todos', TodoController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
+
+
+// profile
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
