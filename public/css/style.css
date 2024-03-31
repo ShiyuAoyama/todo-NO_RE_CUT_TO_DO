@@ -35,9 +35,6 @@
     /* background-color: rgba(255,255,255,10%);
     backdrop-filter: blur(10px); */
    background-color: rgba(255, 255, 255, 0.7);
-   
-   
-   
 }
 
 .welcome-loginbox{
@@ -126,3 +123,13 @@ main:has(.edit-mainbox) {
     position: absolute;
     width: 100%;
 }
+
+/* -----footer------------------ */
+.app_footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: #c0c0c0;
+    vertical-align: middle;
+  }

@@ -39,7 +39,7 @@ class LoginController extends Controller
 
     public function redirectPath()
     {
-        return 'tasks.index';
+        return 'tasks';
         //例）return 'costs/index';
     }
 }
