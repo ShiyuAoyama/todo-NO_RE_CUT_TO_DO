@@ -56,9 +56,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('tasks/todos/{id}', [TodoController::class, 'destroy'])->name('tasks.todos.destroy');
 });
 
-// Namiki
-// Route::resource('tasks.todos', TodoController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
-
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');

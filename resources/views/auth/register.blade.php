@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}" enctype='multipart/form-data'>
                         @csrf
 
                         <div class="row mb-3">
@@ -38,6 +38,21 @@
                                 @enderror
                             </div>
                         </div>
+
+                        {{-- アバター登録用の記述 --}}
+                        <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">{{ __('プロフィール画像 (サイズは1024Kbyteまで）') }}</label>
+ 
+                            <div class="col-md-6">
+                                <input id="avatar" type="file" name="avatar" class="@error('avatar') is-invalid @enderror">
+                                @error('avatar')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        {{-- ここまで追加 --}}
 
                         <div class="row mb-3">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
