@@ -43,6 +43,7 @@ class TodoController extends Controller
     // public function update(Request $request, Todo $todo)
     public function update(Request $request, $id)
     {
+        // dd('yuri');
         $todo = Todo::find($id);
         $request->validate([
             'content' => 'required',
@@ -65,4 +66,35 @@ class TodoController extends Controller
         Todo::destroy($id);
         return redirect()->route('tasks.index');
     }
+
+    public function updateDescription(Request $request, $id)
+    {
+        // dd($request->input('description'));
+        $todo = Todo::find($id);
+        $todo->description = $request->input('description');
+        $todo->update();
+
+        return back();
+    }
+
+    public function updateContent(Request $request, $id)
+    {
+        $todo = Todo::find($id);
+        $task = Task::find($todo->task_id);
+
+        $todo->content = $request->input('content');
+        $todo->update();
+
+        if($request->hasFile('image')) {
+            $imageName = $request->file('image')->getClientOriginalName();
+            $request->image->move(public_path('storage/images'), $imageName);
+            $task->image = $imageName;
+        }
+
+        $task->title = $request->input('title');
+        $task->update();
+
+        return back();
+    }
+    
 }
