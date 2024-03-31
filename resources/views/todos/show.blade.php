@@ -21,30 +21,43 @@
   </header>
   <div class="container">
       <div class="row justify-content-center">
-          <div class="col-md-8">
+          <div class="col-md-8 show-info-box">
+            <img class=" mt-3" src="{{ asset('imgs/welcome-background2.jpg') }}" alt="">
               <div class="card mt-3">
                   <div class="card-header">
-                      <h5>タイトル： {{ $todo->task->title }}</h5>
+                      <h5>TITLE： {{ $todo->task->title }}</h5>
                   </div>
+                    
                   <div class="card-body">
-                  <p class="card-text">内容： {{ $todo->content }}</p>
-                  <p>投稿日時：</p>
-                  <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">編集する</a> <!-- Button trigger modal -->
-                  <form action='{{ route('tasks.todos.destroy', $todo->id) }}' method='post'>
-                      @csrf
-                      @method('DELETE')
-                      <input type='submit' value='削除' class="btn btn-danger" onclick='return confirm("本当に削除しますか？");'>
-                  </form>
+                    <p class="card-text">CONTENT： {{ $todo->content }}</p>
+                    <p class="card-subtitle">DATE UPDATED: {{ $todo->created_at->format('Y-m-d') }}</p>
+                    
+                    <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</a> <!-- Button trigger modal -->
+                    <form action='{{ route('tasks.todos.destroy', $todo->id) }}' method='post'>
+                        @csrf
+                        @method('DELETE')
+                        <input type='submit' value='DELETE' class="btn btn-danger" onclick='return confirm("Are you sure you want to delete this task?");'>
+                    </form>
                   </div>
               </div>
           </div>
       </div>
+      <hr>
       <div class="row justify-content-center">
-        <div class="col-md-8">
-                <button type="button" class="btn btn-primary">コメントする</button>
-        </div>
+        @if($todo->description)
+          <p>{{ $todo->description }}</p>
+          <div class="col-md-8">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaldesc">EDIT</button>
+          </div>
+        @else 
+          <p>コメントする</p>
+          <div class="col-md-8">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaldesc">コメントする</button>
+          </div>
+        @endif
+        
       </div>
-      <div class="row justify-content-center">
+      {{-- <div class="row justify-content-center">
         <div class="col-md-8 mt-5">
           コメント一覧
             <div class="card mt-3">
@@ -55,7 +68,7 @@
                 </div>
             </div>
         </div>
-      </div>
+      </div> --}}
   </div>
  
 
@@ -64,25 +77,52 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">タイトル名</h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Title</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="show-custom-form">
+        <form method="post" action="{{ route('tasks.todos.updateContent', $todo->id) }}" class="show-custom-form">
+          @csrf
+          @method('patch')
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label"> タスク名</label>
-            <input type="text" class="form-control" id="exampleInputEmail1" value="{{ $todo->task->title }}">
+            <label for="exampleInputEmail1" class="form-label"> Task</label>
+            <input type="text" class="form-control" id="exampleInputEmail1" name="title" value="{{ $todo->task->title }}">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">内容</label>
-            <input type="text" class="form-control" id="exampleInputPassword1" value="{{ $todo->content }}">
+            <label for="exampleInputPassword1" class="form-label">Content</label>
+            <input type="text" class="form-control" id="exampleInputPassword1" name="content" value="{{ $todo->content }}">
           </div>
-          <button type="submit" class="btn btn-primary">提出</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+{{-- end --}}
+
+{{-- Modal description --}}
+<div class="modal fade" id="exampleModaldesc" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Description</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post" action="{{ route('tasks.todos.updateDescription', $todo->id) }}" class="show-custom-form">
+          @csrf
+          @method('patch')
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Description</label>
+            <textarea rows="10" cols="50"  class="form-control" id="exampleInputPassword1" name="description">{{ $todo->description }}</textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{-- end --}}
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
