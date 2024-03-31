@@ -21,18 +21,21 @@
         <form action="/profile" method="POST" class="profile_input">
             <label>Your Name</label>
                 <input 
+                class="input"
                 name="Name"
                 value="{{ old('Name') }}"
                 type="text">
             
             <label>email</label>
             <input 
+            class="input"
             name="email"
             value="{{ old('email') }}"
             type="text">
 
             <label>password</label>
             <input 
+            class="input"
             name="password"
             value="{{ old('password') }}"
             type="text">
@@ -41,16 +44,16 @@
         <p class="profile_email">email</p>
         <p class="profile_password">password</p> --}}
 
-        <button class="profile_back_button" type="button">
-            更新
-        </button>
-        <button class="profile_back_button" type="button">
-            戻る
-        </button>
-        {{-- 戻るボタンでの遷移先 --}}
-        {{-- <form action="{{ route }}"></form> --}}
         {{-- 更新ボタンでの遷移先 --}}
-        {{-- <form action="{{ route }}"></form> --}}
+        <a href="{{ route('home') }}" class="profile_update_button">
+            更新
+        </a>
+
+        {{-- 戻るボタンでの遷移先 --}}
+        <a href="{{ route('tasks') }}" class="profile_back_button">
+            戻る
+        </a>
+
         </form>
     </div>
     

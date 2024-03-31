@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profile', function(){
-    return view('profile');
-});
 
 
 Auth::routes();
@@ -32,3 +30,6 @@ Route::get('/tasks/{id}', [TaskController::class, 'show'])->name('tasks.show');
 
 //TaskController edit-page
 Route::get('/tasks/{id}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
+
+// profile
+Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
