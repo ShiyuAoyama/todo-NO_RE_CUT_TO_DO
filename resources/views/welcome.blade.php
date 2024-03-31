@@ -14,25 +14,25 @@
         <!-- Styles -->
         
     </head>
-    <body class="antialiased">
+    <body class="antialiased welcome-mainmargin">
         <div class="welcome-wrapper">
             {{-- <div class="welcome_background-main"> --}}
                 <div class="welcome_backgroung-text">
-                    <img src="./public/imgs/welcome-background.jpg" alt="">
+                    {{-- <img src="./public/imgs/welcome-background.jpg" alt=""> --}}
                 </div>
+            <h1 class=welcome-header>WELCOME TO OUR APP</h1>
             
-            <h1>ようこそ私たちのアプリへ</h1>
-             
+                <p class="welcome-content">Create your own personalized to-do list and manage all your projects in one place
                  <div class="welcome-body">
                    @if (Route::has('login'))
                        <div class="welcome-main">
                            @auth
                                <a href="{{ url('/home') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Home</a>
                            @else
-                               <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Log in</a>
+                               <a href="{{ route('login') }}" class="font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 welcome-loginbox">Log in</a></div>
        
                                @if (Route::has('register'))
-                                   <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
+                               <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500 welcome-registerbox">Register</a></div>
                                @endif
                            @endauth
                        </div>

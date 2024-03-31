@@ -50,7 +50,7 @@
         </a>
 
         {{-- 戻るボタンでの遷移先 --}}
-        <a href="{{ route('tasks') }}" class="profile_back_button">
+        <a href="{{ route('home') }}" class="profile_back_button">
             戻る
         </a>
 

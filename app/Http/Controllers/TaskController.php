@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
+use Egulias\EmailValidator\Warning\TLD;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -11,7 +14,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Auth::user()->tasks;
+        return view('tasks.index', compact('tasks'));
     }
 
     /**
@@ -27,15 +31,26 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+        ]);
+
+        $task = new Task();
+        $task->title = $request->input('title');
+        $task->user_id = Auth::id();
+        $task->save();
+
+        return redirect()->route('tasks.index');
     }
+
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        return view('tasks.show');
+        $task = Task::find($id);
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -49,16 +64,37 @@ class TaskController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+
+
+        $request->validate([
+            'title' => 'required',
+        ]);
+
+        $task->title = $request->input('title');
+        $task->user_id = Auth::id();
+        $task->update();
+
+        return redirect()->route('tasks.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        Task::destroy($id);
+        return redirect()->route('tasks.index');
     }
+
+    // Yuri's code
+    // public function destroy($id)
+    // {
+    //     Task::destroy($id);
+    //     return redirect()->route('home');
+    // }
+
+
 }
