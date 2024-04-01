@@ -51,6 +51,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'avatar' => ['image'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -63,11 +64,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        //ここから追加
+        if (request()->file('avatar')) {
+            $avatar = request()->file('avatar')->getClientOriginalName();
+            request()->file('avatar')->storeAs('public/images', $avatar);
+
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'avatar' => $avatar,
+                'password' => Hash::make($data['password']),
+            ]);
+        } else {
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+        }
+        //ここまで追加
+
+
+        // return User::create([
+        //     'name' => $data['name'],
+        //     'email' => $data['email'],
+        //     'password' => Hash::make($data['password']),
+        // ]);
     }
     public function redirectPath()
     {

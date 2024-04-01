@@ -146,6 +146,25 @@ main:has(.edit-mainbox) {
     width: 100%;
 }
 
+/* -----header------------------ */
+.header_profile-icon {
+    width: 60px;
+    height: 60px;
+}
+.header_profile-icon > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.nav-item {
+    align-self: center;
+}
+.nav-item > a{
+    font-size: 20px;
+}
+
+
 /* -----footer------------------ */
 .app_footer {
     width: 100%;

@@ -59,9 +59,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('tasks/todos_content/{id}', [TodoController::class, 'updateContent'])->name('tasks.todos.updateContent');  //詳細ページの部分横山
 });
 
-// Namiki
-// Route::resource('tasks.todos', TodoController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
-
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
