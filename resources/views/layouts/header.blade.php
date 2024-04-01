@@ -31,11 +31,7 @@
                     @endif
                     @else
                     <a href="{{ route('profile.index') }}" class="header_profile-icon">
-                        @if(Auth::user()->avatar)
-                          <img src="{{ 'storage/images/' . Auth::user()->avatar }}" class="d-block rouned-circle mb-3">
-                        @else
-                          <img src="{{ 'images/default.png' . Auth::user()->avatar }}>
-                        @endif
+                        <img src="{{ 'storage/images/' . Auth::user()->avatar }}" class="d-block rouned-circle mb-3">
                     </a>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
