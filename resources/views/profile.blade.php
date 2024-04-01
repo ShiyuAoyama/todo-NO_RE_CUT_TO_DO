@@ -16,9 +16,12 @@
 <body class="profile_body">
     {{-- <a href="{{ route('profile') }}">Profile</a> --}}
     <div class="profile_body_content">
-        @csrf
+        
         <h1 class="profile_title">Your Profile</h1>
-        <form action="/profile" method="POST" class="profile_input">
+        {{-- <form action="/profile" method="POST" class="profile_input"> --}}
+        <form action="{{ route('profile.update', $profile->id) }}" method="POST"></form>
+        @csrf
+        @method('put')
             <label>Your Name</label>
                 <input 
                 class="input"
