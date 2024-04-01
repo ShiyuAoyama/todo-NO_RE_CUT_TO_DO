@@ -21,9 +21,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
-});
 
 Route::get('/tasks', [TaskController::class, 'index'])->middleware('auth');
 
@@ -52,14 +49,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('tasks/todo/{id}', [TodoController::class, 'show'])->name('tasks.todo.show');
     Route::post('tasks/todos', [TodoController::class, 'store'])->name('tasks.todos.store');
-    Route::put('tasks/todos/{id}', [TodoController::class, 'update'])->name('tasks.todos.update');
+    Route::put('tasks/todos/{id}', [TodoController::class, 'update'])->name('tasks.todos.update');  
     Route::delete('tasks/todos/{id}', [TodoController::class, 'destroy'])->name('tasks.todos.destroy');
-});
 
-// Namiki
-// Route::resource('tasks.todos', TodoController::class)->only(['store', 'update', 'destroy'])->middleware('auth');
+    Route::patch('tasks/todos/{id}', [TodoController::class, 'updateDescription'])->name('tasks.todos.updateDescription');  //詳細ページのコメントの部分横山
+    Route::patch('tasks/todos_content/{id}', [TodoController::class, 'updateContent'])->name('tasks.todos.updateContent');  //詳細ページの部分横山
+});
 
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
-// Route::get('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');

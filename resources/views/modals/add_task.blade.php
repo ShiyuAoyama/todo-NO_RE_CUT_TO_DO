@@ -2,7 +2,7 @@
   <div class="modal-dialog">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title" id="addTaskModalLabel">目標の追加</h5>
+              <h5 class="modal-title" id="addTaskModalLabel">Add Category</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="閉じる"></button>
           </div>
           <form action="{{ route('tasks.store') }}" method="post">
@@ -11,7 +11,7 @@
                   <input type="text" class="form-control" name="title">
               </div>
               <div class="modal-footer">
-                  <button type="submit" class="btn btn-primary">登録</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
               </div>
           </form>
       </div>
