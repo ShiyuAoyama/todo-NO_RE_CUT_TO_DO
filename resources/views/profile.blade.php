@@ -18,8 +18,8 @@
     <div class="profile_body_content">
         
         <h1 class="profile_title">Your Profile</h1>
-        {{-- <form action="/profile" method="POST" class="profile_input"> --}}
-        <form action="{{ route('profile.update', $profile->id) }}" method="POST"></form>
+        <form action="/profile" method="POST" class="profile_input">
+        {{-- <form action="{{ route('profile.update', $profile->id) }}" method="POST"></form> --}}
         @csrf
         @method('put')
             <label>Your Name</label>
@@ -48,12 +48,12 @@
         <p class="profile_password">password</p> --}}
 
         {{-- 更新ボタンでの遷移先 --}}
-        <a href="{{ route('home') }}" class="profile_update_button">
+        <a href="{{ route('tasks.index') }}" class="profile_update_button">
             更新
         </a>
 
         {{-- 戻るボタンでの遷移先 --}}
-        <a href="{{ route('home') }}" class="profile_back_button">
+        <a href="{{ route('tasks.index') }}" class="profile_back_button">
             戻る
         </a>
 
