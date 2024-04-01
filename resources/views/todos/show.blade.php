@@ -36,13 +36,14 @@
                   <div class="card-body">
                     <p class="card-text">CONTENT： {{ $todo->content }}</p>
                     <p class="card-subtitle">DATE UPDATED: {{ $todo->created_at->format('Y-m-d') }}</p>
-                    
-                    <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</a> <!-- Button trigger modal -->
-                    <form action='{{ route('tasks.todos.destroy', $todo->id) }}' method='post'>
-                        @csrf
-                        @method('DELETE')
-                        <input type='submit' value='DELETE' class="btn btn-danger" onclick='return confirm("Are you sure you want to delete this task?");'>
-                    </form>
+                    <div class="show-content-buttom">
+                       <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</a> <!-- Button trigger modal -->
+                       <form action='{{ route('tasks.todos.destroy', $todo->id) }}' method='post'>
+                           @csrf
+                           @method('DELETE')
+                           <input type='submit' value='DELETE' class="btn btn-danger" onclick='return confirm("Are you sure you want to delete this task?");'>  
+                       </form>
+                    </div>
                   </div>
               </div>
           </div>
@@ -51,12 +52,12 @@
       <div class="row justify-content-center">
         @if($todo->description)
           <p>{{ $todo->description }}</p>
-          <div class="col-md-8">
+          <div class="col-md-8 show-description-content">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaldesc">EDIT</button>
           </div>
         @else 
           <p>コメントする</p>
-          <div class="col-md-8">
+          <div class="col-md-8 show-description-bottom">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModaldesc">コメントする</button>
           </div>
         @endif
@@ -139,6 +140,12 @@
   </div>
 </div>
 {{-- end --}}
+
+  <div class="show-back-bottom">
+    <a href="javascript:history.back()" type="button" class="btn btn-primary" >BACK</a> 
+  </div>
+
+
   <footer>
     Copyright &copy; Seedkun Inc.
   </footer>
