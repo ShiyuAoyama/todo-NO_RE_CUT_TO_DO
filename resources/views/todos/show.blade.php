@@ -25,7 +25,7 @@
             @if($todo->task->image)
               <img class="mt-3 show-image" src="{{ asset('storage/images/' . $todo->task->image) }}" alt="" />
             @else
-              <img class=" mt-3 show-image" src="{{ asset('imgs/welcome-background2.jpg') }}" alt="" />
+              <img class=" mt-3 show-image" src="{{ asset('imgs/show-image-defo.jpg') }}" alt="" />
             @endif
 
               <div class="card mt-3">
@@ -105,7 +105,7 @@
             @if($todo->task->image)
             <img id="previewImage" class="mt-3" src="{{ asset('storage/images/' . $todo->task->image) }}" alt="" style="width: 100%; height: 250px; object-fit: contain" />
             @else
-              <img id="previewImage" class="mt-3" src="{{ asset('imgs/welcome-background2.jpg') }}" alt="" style="width: 100%; height: 250px; object-fit: contain" />
+              <img id="previewImage" class="mt-3" src="{{ asset('imgs/show-image-defo.jpg') }}" alt="" style="width: 100%; height: 250px; object-fit: contain" />
             @endif
           </div>
           

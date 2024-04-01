@@ -165,8 +165,9 @@ main:has(.edit-mainbox) {
     justify-content: center;
     margin: 50px 30px 20px 900px;
 }
-.show-description-content{
+.show-description-bottom{
     display: contents;
+    margin-left: 30px;
 }
 
 /* -----header------------------ */
