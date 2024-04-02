@@ -40,6 +40,7 @@
                       <div class="card-body d-flex justify-content-between align-items-center">
                           <h4 class="card-title ms-1 mb-0">{{ $task->title }}</h4>
                           <div class="d-flex align-items-center">
+                            <span class="index_count-todo">{{ count($task->todos) }}</span>
                             <a href="#" class="px-2 fs-5 fw-bold link-dark text-decoration-none" data-bs-toggle="modal" data-bs-target="#addTodoModal{{ $task->id }}">＋</a>
                               <div class="dropdown">
                                   {{-- <a href="#" class="dropdown-toggle px-1 fs-5 fw-bold link-dark text-decoration-none" id="dropdownGoalMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">︙</a> --}}
