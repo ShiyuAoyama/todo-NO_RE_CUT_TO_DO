@@ -59,3 +59,4 @@ Route::middleware('auth')->group(function () {
 
 // profile
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+Route::put('/profile/{id}', [ProfileController::class, 'update'])->name('profile.update');
