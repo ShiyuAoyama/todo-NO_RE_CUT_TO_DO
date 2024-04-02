@@ -18,7 +18,7 @@
     <div class="profile_body_content">
         
         <h1 class="profile_title">Your Profile</h1>
-        <form action="{{ route('profile.update', Auth::user()->id) }}" method="POST" class="profile_input">
+        <form action="{{ route('profile.update', Auth::user()->id) }}" method="POST" class="profile_input" enctype="multipart/form-data">
         {{-- <form action="{{ route('profile', $profile->id) }}" method="POST"></form> --}}
         @csrf
         @method('put')
@@ -35,6 +35,11 @@
             name="email"
             value="{{ Auth::user()->email }}"
             type="email">
+
+            <label for="image" class="form-label">Image</label>
+            <input type="file" class="form-control" id="image" name="image" value="{{ Auth::user()->avatar }}" />
+            <img id="previewImage" class="mt-3" src="{{ 'storage/images/' . Auth::user()->avatar }}" alt="" style="width: 100%; height: 250px; object-fit: contain" />
+
 
             {{-- <label>password</label><br>
             <input 
@@ -61,6 +66,21 @@
             戻る
         </a>
     </div>
+
+    <script>
+        document.getElementById('image').addEventListener('change', function(event) {
+          var input = event.target
+          var reader = new FileReader()
+    
+          reader.onload = function() {
+            var dataURL = reader.result
+            var img = document.getElementById('previewImage')
+            img.src = dataURL
+          }
+    
+          reader.readAsDataURL(input.files[0])
+        })
+      </script>
     
 </body>
 </html>

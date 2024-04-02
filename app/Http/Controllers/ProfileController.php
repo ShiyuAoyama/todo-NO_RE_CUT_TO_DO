@@ -18,6 +18,13 @@ class ProfileController extends Controller
 
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+
+        if($request->hasFile('image')) {
+            $avatar = request()->file('image')->getClientOriginalName();
+            request()->file('image')->storeAs('public/images', $avatar);
+            $user->avatar = $avatar;
+        }
+
         $user->update();
         return back();
     }
