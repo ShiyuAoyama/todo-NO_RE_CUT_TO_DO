@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="{{ asset('/css/profile.css')  }}">
 </head>
 
-{{-- @extends('layouts.app_original')
+{{-- @extends('layouts.app')
 @section('content') --}}
 
 <title>nameのプロフィール</title>
@@ -52,8 +52,53 @@
         <p class="profile_email">email</p>
         <p class="profile_password">password</p> --}}
 
+        
+    <!-- モーダル用のHTML -->
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Your Profile has been Updated!</p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+    // モーダル表示用の関数
+    function showModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "block";
+    }
+
+    // モーダルを閉じるための関数
+    function closeModal() {
+      var modal = document.getElementById("myModal");
+      modal.style.display = "none";
+    }
+
+    // 更新が完了した場合にモーダルを表示
+    @if (session('status'))
+        showModal();
+    @endif
+
+    // モーダル内の閉じるボタンの処理
+    var closeBtn = document.querySelector(".close");
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeModal);
+    }
+
+    // モーダル外のクリックでモーダルを閉じる
+    window.onclick = function(event) {
+      var modal = document.getElementById("myModal");
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+</script>
+
+        
+        
         {{-- 更新ボタンでの遷移先 --}}
-                <input type="submit" value="更新">
+        <input type="submit" value="Update" class="profile_update_button">
 
         </form>
 
@@ -62,11 +107,12 @@
         </a> --}}
 
         {{-- 戻るボタンでの遷移先 --}}
-        <a href="{{ route('tasks.index') }}" class="profile_back_button">
-            戻る
-        </a>
+        <button href="{{ route('tasks.index') }}" class="profile_back_button">
+            Back
+        </button>
     </div>
 
+    
     <script>
         document.getElementById('image').addEventListener('change', function(event) {
           var input = event.target
@@ -83,5 +129,11 @@
       </script>
     
 </body>
-</html>
+
+<footer class="app_footer">
+    <div>
+      <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
+    </div> 
+  </footer>
 {{-- @endsection --}}
+</html>
