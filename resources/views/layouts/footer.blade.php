@@ -1,5 +1,3 @@
 <footer class="app_footer">
-  <div>
-    <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
-  </div> 
+  <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
 </footer>
