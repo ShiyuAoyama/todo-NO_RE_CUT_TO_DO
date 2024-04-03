@@ -98,7 +98,7 @@
             <label for="exampleInputPassword1" class="form-label">Content</label>
             <input type="text" class="form-control" id="exampleInputPassword1" name="content" value="{{ $todo->content }}">
           </div>
-
+ 
           <div class="mb-3">
             <label for="image" class="form-label">Image</label>
             <input type="file" class="form-control" id="image" name="image" value="{{ $todo->task->image }}" />

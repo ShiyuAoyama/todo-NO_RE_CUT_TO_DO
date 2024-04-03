@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container edit-mainbox">
-    <div class="row justify-content-center">
+    <h1 class="login-head">LOG IN</h1>
+    <div class="row justify-content-center login-mainbox">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                {{-- <div class="card-header">{{ __('Login') }}</div> --}}
+                <div class="card-body login-form">
+                    <form method="POST" action="{{ route('login') }}" class="login-formbox">
                         @csrf
 
                         <div class="row mb-3">

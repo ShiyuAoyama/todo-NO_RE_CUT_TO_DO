@@ -79,15 +79,15 @@ class TodoController extends Controller
 
     public function updateContent(Request $request, $id)
     {
-        $todo = Todo::find($id);
-        $task = Task::find($todo->task_id);
+        $todo = Todo::find($id);      //eloquent model =by useing this one,it makes easily
+        $task = Task::find($todo->task_id);  //call the model
 
         $todo->content = $request->input('content');
         $todo->update();
 
         if($request->hasFile('image')) {
-            $imageName = $request->file('image')->getClientOriginalName();
-            $request->image->move(public_path('storage/images'), $imageName);
+            $imageName = $request->file('image')->getClientOriginalName();    //userが写真を挿入した際に、pngとか含んだところまで読み込む
+            $request->image->move(public_path('storage/images'), $imageName);  //写真が保存される場所を指定している
             $task->image = $imageName;
         }
 
