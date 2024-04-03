@@ -34,7 +34,7 @@
                   </div>
                     
                   <div class="card-body">
-                    <p class="card-text">CONTENT： {{ $todo->content }}</p>
+                    <p class="card-text">TO DO： {{ $todo->content }}</p>
                     <p class="card-subtitle">DATE UPDATED: {{ $todo->created_at->format('Y-m-d') }}</p>
                     <div class="show-content-buttom">
                        <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">EDIT</a> <!-- Button trigger modal -->
@@ -95,7 +95,7 @@
             <input type="text" class="form-control" id="exampleInputEmail1" name="title" value="{{ $todo->task->title }}">
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Content</label>
+            <label for="exampleInputPassword1" class="form-label">To Do</label>
             <input type="text" class="form-control" id="exampleInputPassword1" name="content" value="{{ $todo->content }}">
           </div>
  
@@ -142,7 +142,7 @@
 {{-- end --}}
 
   <div class="show-back-bottom">
-    <a href="javascript:history.back()" type="button" class="btn btn-primary" >BACK</a> 
+    <a href="{{  route('tasks.index') }}" type="button" class="btn btn-primary" >BACK</a> 
   </div>
 
 
