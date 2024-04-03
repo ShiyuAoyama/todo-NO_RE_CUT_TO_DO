@@ -19,7 +19,7 @@
             </ul>
         </div>
   </header>
-  <div class="container">
+  <div class="show-container">
       <div class="row justify-content-center">
           <div class="col-md-8 show-info-box">
             @if($todo->task->image)

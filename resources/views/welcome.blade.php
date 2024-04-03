@@ -22,7 +22,7 @@
                     <div class="welcome_backgroung-text">
                         {{-- <img src="./public/imgs/welcome-background.jpg" alt=""> --}}
                     </div>
-                <h1 class=welcome-header>WELCOME TO OUR APP</h1>
+                <h1 class=welcome-header>WELCOME TO STUDY BUDDY</h1>
                 
                     <p class="welcome-content">Create your own personalized to-do list and manage all your projects in one place
                      <div class="welcome-body">

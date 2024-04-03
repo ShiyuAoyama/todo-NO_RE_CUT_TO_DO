@@ -2,13 +2,13 @@
 
 @section('content')
 <div class="container regsister-mainbox">
-    <div class="row justify-content-center">
+    <h1 class="register-head">REGISTER</h1>
+    <div class="row justify-content-center register-mainbox">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}" enctype='multipart/form-data'>
+                {{-- <div class="card-header">{{ __('Register') }}</div> --}}
+                <div class="card-body register-form">
+                    <form method="POST" action="{{ route('register') }}" enctype='multipart/form-data' class="register-formbox">
                         @csrf
 
                         <div class="row mb-3">

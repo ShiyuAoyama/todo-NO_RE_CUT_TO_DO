@@ -21,6 +21,7 @@
     font-family:  "Hannari";
     margin-top: 10px;
     color: white;
+    font-size: 50px;
 }
 
 .welcome-body{
@@ -235,6 +236,8 @@ main:has(.edit-mainbox) {
     background-color: #fff;
 }
 
+
+
 .edit-mainbox{
     background-image: url(../imgs/login-image.jpg);
     background-size: contain; /* 背景画像を元の比率で表示 */
@@ -268,6 +271,46 @@ main:has(.login-mainbox) {
     /* position: absolute; */
     width: 100%;
 }
+
+
+main:has(.login-mainbox) {
+    margin-left: 0!important;
+    margin-right: 0!important;
+}
+/*---register----*/
+.register-head{
+    font-size: 100px;
+    font-family: 'Anton', sans-serif;
+    margin-left: -30px;
+    font-weight: 400;
+}
+.register-mainbox{
+    background-image: url(../imgs/register-image.jpg);
+    background-size: contain; /* 背景画像を元の比率で表示 */
+    background-repeat: no-repeat; /* 背景画像の繰り返しを無効化 */
+    /* background-position: center; */
+    
+    background-size: 90%;
+    margin: 0;
+    height: 450px;
+    /* filter: blur(20px); */
+
+}
+/* .register-formbox{
+    width: 300px;
+} */
+.register-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+
+.register-formbox{
+    
 
 /* -----index------------------ */
 /* .tasks-index_body {
