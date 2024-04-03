@@ -77,7 +77,7 @@
     justify-content: center;
     align-items: center;
     font-size: 30px;
-    font-family: 'Amatic SC', cursive;
+    font-family: 'Anton', sans-serif;
 
 }
 .welcome_background-text {
@@ -99,6 +99,11 @@
 /* .welcome-wrapper > *{
     backdrop-filter: blur(10px);
 } */
+
+/* -----register page------------------ */
+
+
+
 /* -----show page------------------ */
 .show-custom-form * {
     box-sizing: border-box;
@@ -165,8 +170,9 @@ main:has(.edit-mainbox) {
     justify-content: center;
     margin: 50px 30px 20px 900px;
 }
-.show-description-content{
+.show-description-bottom{
     display: contents;
+    margin-left: 30px;
 }
 
 /* -----header------------------ */
@@ -196,4 +202,45 @@ main:has(.edit-mainbox) {
     text-align: center;
     background-color: #c0c0c0;
     vertical-align: middle;
-  }
+}
+  /* -----login------------------ */
+.login-head{
+    font-size: 100px;
+    font-family: 'Anton', sans-serif;
+    margin-left: -30px;
+    font-weight: 400;
+}
+
+.edit-mainbox{
+    background-image: url(../imgs/login-image.jpg);
+    background-size: contain; /* 背景画像を元の比率で表示 */
+    background-repeat: no-repeat; /* 背景画像の繰り返しを無効化 */
+    background-position: center;
+    background-size: 90%;
+    margin: 0;
+
+}
+.login-mainbox{
+    padding: 20px;
+    /* box-sizing: border-box; */
+    max-width: 100%; /* 画面幅以下に制限 */
+    overflow-x: hidden; /* 横方向のスクロールを隠す */
+}
+.login-form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.login-formbox{
+    width: 300px;
+}
+
+main:has(.login-mainbox) {
+    margin: 50px;
+    padding: 80px;
+    top: 0;
+    bottom: 0;
+    /* position: absolute; */
+    width: 100%;
+}
