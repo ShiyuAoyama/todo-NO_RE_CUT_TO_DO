@@ -1,25 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-</head>
-<body>
-  <header>
-    <div class="header-left">
-            <img class="logo" src="./logo.png" alt="">
-        </div>
-        <div class="header-right">
-            <ul class="nav">
-                <li><a href="#">ユーザA</a></li>
-            </ul>
-        </div>
-  </header>
-  <div class="show-container">
+@extends('layouts.app')
+
+@section('content')
+<div class="show-container">
       <div class="row justify-content-center">
           <div class="col-md-8 show-info-box">
             @if($todo->task->image)
@@ -144,11 +126,6 @@
   <div class="show-back-bottom">
     <a href="{{  route('tasks.index') }}" type="button" class="btn btn-primary" >BACK</a> 
   </div>
-
-
-  <footer>
-    Copyright &copy; Seedkun Inc.
-  </footer>
 
   <script>
     document.getElementById('image').addEventListener('change', function(event) {
