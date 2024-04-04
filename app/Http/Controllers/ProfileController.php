@@ -26,12 +26,9 @@ class ProfileController extends Controller
         }
 
         $user->update();
+        session()->flash('message', 'Your Profile has been Updated!');
         return back();
     }
-}
 
-// function update(Request $request, $id)
-// {
-//     $profile = Profile::find($id);
-// }
+}
 ?>

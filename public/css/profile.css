@@ -6,6 +6,16 @@
     justify-content: center;
 }
 
+#profile_updated_alert{
+    /* messageに色をつけて、中央寄せ */
+    padding: 10px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(5, 218, 119);
+    color: rgb(9, 148, 63);
+}
+
+
 .profile_input{
     display: flex;
     flex-direction: column;
@@ -48,45 +58,6 @@
     display: flex;
     justify-content: center;
 }
-
-/* modal */
-/* モーダルのスタイル */
-.modal {
-    display: none; /* 初期状態では非表示 */
-    position: fixed; /* 画面上で固定される */
-    z-index: 1; /* モーダルを他の要素の上に配置 */
-    left: 0;
-    top: 0;
-    width: 100%; /* 画面全体の幅 */
-    height: 100%; /* 画面全体の高さ */
-    overflow: auto; /* コンテンツがモーダルの外にある場合はスクロール可能にする */
-    background-color: rgba(0,0,0,0.4); /* 背景を半透明にする */
-  }
-  
-  /* モーダル内のコンテンツのスタイル */
-  .modal-content {
-    background-color: #fefefe; /* モーダル内部の背景色 */
-    margin: 15% auto; /* 上下15%、左右は自動的に中央に配置 */
-    padding: 20px;
-    border: 1px solid #888; /* 枠線 */
-    width: 80%; /* モーダルの幅 */
-  }
-  
-  /* 閉じるボタンのスタイル */
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  
 
 /* -----footer------------------ */
 .app_footer {

@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="{{ asset('/css/profile.css')  }}">
 </head>
 
-{{-- @extends('layouts.app')
+{{-- @extends('layouts.app_original')
 @section('content') --}}
 
-<title>nameのプロフィール</title>
+<title>YoureProfile</title>
 
 <body class="profile_body">
     {{-- <a href="{{ route('profile') }}">Profile</a> --}}
@@ -20,6 +20,27 @@
         <h1 class="profile_title">Your Profile</h1>
         <form action="{{ route('profile.update', Auth::user()->id) }}" method="POST" class="profile_input" enctype="multipart/form-data">
         {{-- <form action="{{ route('profile', $profile->id) }}" method="POST"></form> --}}
+
+        {{-- 更新完了メッセージ --}}
+        @if(session('message'))
+          <div id="profile_updated_alert">
+            {{-- profile_updated_message alert-succes --}}
+            {{ session('message') }}
+          </div>
+
+          <script>
+            setTimeout(function() {
+            var alertElement = document.getElementById('profile_updated_alert');
+            console.log(alertElement);
+            if (alertElement) {
+                alertElement.style.display = 'none';
+            }
+        }, 2000);
+          </script>
+        @endif
+
+
+
         @csrf
         @method('put')
             <label>Your Name</label><br>
@@ -52,67 +73,32 @@
         <p class="profile_email">email</p>
         <p class="profile_password">password</p> --}}
 
-        
-    <!-- モーダル用のHTML -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <p>Your Profile has been Updated!</p>
-      </div>
-    </div>
-
-    <!-- JavaScript -->
-    <script>
-    // モーダル表示用の関数
-    function showModal() {
-      var modal = document.getElementById("myModal");
-      modal.style.display = "block";
-    }
-
-    // モーダルを閉じるための関数
-    function closeModal() {
-      var modal = document.getElementById("myModal");
-      modal.style.display = "none";
-    }
-
-    // 更新が完了した場合にモーダルを表示
-    @if (session('status'))
-        showModal();
-    @endif
-
-    // モーダル内の閉じるボタンの処理
-    var closeBtn = document.querySelector(".close");
-    if (closeBtn) {
-      closeBtn.addEventListener("click", closeModal);
-    }
-
-    // モーダル外のクリックでモーダルを閉じる
-    window.onclick = function(event) {
-      var modal = document.getElementById("myModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-</script>
-
-        
-        
         {{-- 更新ボタンでの遷移先 --}}
         <input type="submit" value="Update" class="profile_update_button">
 
         </form>
 
-        {{-- <a href="{{ route('tasks.index') }}" class="profile_update_button">
-            更新
-        </a> --}}
+        
 
         {{-- 戻るボタンでの遷移先 --}}
-        <button href="{{ route('tasks.index') }}" class="profile_back_button">
+        {{-- <button type="button"
+        <a href="{{ route('tasks.index') }}" class="profile_back_button">
             Back
+        </a>
+        </button> --}}
+
+        <button onclick="location.href='{{ route('tasks.index') }}'" class="profile_back_button">
+          Back
         </button>
+
+      <footer class="app_footer">
+        <div>
+          <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
+        </div> 
+      </footer>
+    
     </div>
 
-    
     <script>
         document.getElementById('image').addEventListener('change', function(event) {
           var input = event.target
@@ -126,14 +112,8 @@
     
           reader.readAsDataURL(input.files[0])
         })
-      </script>
+    </script>
     
 </body>
-
-<footer class="app_footer">
-    <div>
-      <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
-    </div> 
-  </footer>
-{{-- @endsection --}}
 </html>
+{{-- @endsection --}}
