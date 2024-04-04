@@ -6,6 +6,16 @@
     justify-content: center;
 }
 
+#profile_updated_alert{
+    /* messageに色をつけて、中央寄せ */
+    padding: 10px;
+    margin: auto;
+    border-radius: 5px;
+    background-color: rgb(5, 218, 119);
+    color: rgb(9, 148, 63);
+}
+
+
 .profile_input{
     display: flex;
     flex-direction: column;
@@ -27,6 +37,11 @@
     font-size: 30px;
 }
 
+.form-control{
+    margin: auto;
+    margin-bottom:10px;
+}
+
 .profile_update_button{
     margin: auto;
     margin-top: 20px;
@@ -44,3 +59,12 @@
     justify-content: center;
 }
 
+/* -----footer------------------ */
+.app_footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: #c0c0c0;
+    vertical-align: middle;
+  }

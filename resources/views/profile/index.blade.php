@@ -11,7 +11,7 @@
 {{-- @extends('layouts.app_original')
 @section('content') --}}
 
-<title>nameのプロフィール</title>
+<title>YoureProfile</title>
 
 <body class="profile_body">
     {{-- <a href="{{ route('profile') }}">Profile</a> --}}
@@ -20,6 +20,27 @@
         <h1 class="profile_title">Your Profile</h1>
         <form action="{{ route('profile.update', Auth::user()->id) }}" method="POST" class="profile_input" enctype="multipart/form-data">
         {{-- <form action="{{ route('profile', $profile->id) }}" method="POST"></form> --}}
+
+        {{-- 更新完了メッセージ --}}
+        @if(session('message'))
+          <div id="profile_updated_alert">
+            {{-- profile_updated_message alert-succes --}}
+            {{ session('message') }}
+          </div>
+
+          <script>
+            setTimeout(function() {
+            var alertElement = document.getElementById('profile_updated_alert');
+            console.log(alertElement);
+            if (alertElement) {
+                alertElement.style.display = 'none';
+            }
+        }, 2000);
+          </script>
+        @endif
+
+
+
         @csrf
         @method('put')
             <label>Your Name</label><br>
@@ -53,18 +74,29 @@
         <p class="profile_password">password</p> --}}
 
         {{-- 更新ボタンでの遷移先 --}}
-                <input type="submit" value="更新">
+        <input type="submit" value="Update" class="profile_update_button">
 
         </form>
 
-        {{-- <a href="{{ route('tasks.index') }}" class="profile_update_button">
-            更新
-        </a> --}}
+        
 
         {{-- 戻るボタンでの遷移先 --}}
+        {{-- <button type="button"
         <a href="{{ route('tasks.index') }}" class="profile_back_button">
-            戻る
+            Back
         </a>
+        </button> --}}
+
+        <button onclick="location.href='{{ route('tasks.index') }}'" class="profile_back_button">
+          Back
+        </button>
+
+      <footer class="app_footer">
+        <div>
+          <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
+        </div> 
+      </footer>
+    
     </div>
 
     <script>
@@ -80,7 +112,7 @@
     
           reader.readAsDataURL(input.files[0])
         })
-      </script>
+    </script>
     
 </body>
 </html>
