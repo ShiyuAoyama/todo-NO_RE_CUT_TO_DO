@@ -11,6 +11,8 @@
 {{-- @extends('layouts.app_original')
 @section('content') --}}
 
+<div class="profile-content">
+
 <title>YoureProfile</title>
 
 <body class="profile_body">
@@ -35,7 +37,7 @@
             if (alertElement) {
                 alertElement.style.display = 'none';
             }
-        }, 2000);
+        }, 5000);
           </script>
         @endif
 
@@ -75,7 +77,13 @@
 
         {{-- 更新ボタンでの遷移先 --}}
         <input type="submit" value="Update" class="profile_update_button">
+        
+        <button onclick="location.href='{{ route('tasks.index') }}'" class="profile_back_button">
+          Back
+        </button>
 
+        
+        
         </form>
 
         
@@ -87,17 +95,17 @@
         </a>
         </button> --}}
 
-        <button onclick="location.href='{{ route('tasks.index') }}'" class="profile_back_button">
-          Back
-        </button>
+        
+      </div>
 
-      <footer class="app_footer">
-        <div>
-          <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
-        </div> 
-      </footer>
     
     </div>
+
+    <footer class="app_footer">
+      <div>
+        <p class="copyright">&copy; {{ config('app.name', 'Laravel') }} All rights reserved.</p>
+      </div> 
+    </footer>
 
     <script>
         document.getElementById('image').addEventListener('change', function(event) {
