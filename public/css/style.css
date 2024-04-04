@@ -6,7 +6,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../imgs/welcome-background2.jpg);
+    background-image: url(../imgs/welcome-image.jpg);
     background-repeat:  no-repeat;     /* 画像の繰り返しを指定  */ 
     background-position: center;
     margin: 0;    /* 多分この記述いらん */
@@ -33,9 +33,10 @@
     justify-content: center;
     align-items: center;
     padding: auto;
+    gap: 30px;
     /* background-color: rgba(255,255,255,10%);
     backdrop-filter: blur(10px); */
-   background-color: rgba(255, 255, 255, 0.7);
+   background-color: rgba(255, 255, 255, 0.5);
 }
 
 .welcome-loginbox{
@@ -43,6 +44,7 @@
     text-decoration: none;
     font-weight: bolder;
     font-family: 'Anton', sans-serif;
+    
 }
 
 .welcome-registerbox{
@@ -228,30 +230,9 @@ main:has(.edit-mainbox) {
     font-size: 10px;
 }
   /* -----login------------------ */
-.login-head{
-    font-size: 100px;
-    font-family: 'Anton', sans-serif;
-    margin-left: -30px;
-    font-weight: 400;
-    background-color: #fff;
-}
 
-
-
-.edit-mainbox{
-    background-image: url(../imgs/login-image.jpg);
-    background-size: contain; /* 背景画像を元の比率で表示 */
-    background-repeat: no-repeat; /* 背景画像の繰り返しを無効化 */
-    background-position: center;
-    background-size: 90%;
-    margin: 0;
-
-}
 .login-mainbox{
-    padding: 20px;
-    /* box-sizing: border-box; */
-    max-width: 100%; /* 画面幅以下に制限 */
-    overflow-x: hidden; /* 横方向のスクロールを隠す */
+    padding: 100px;
 }
 .login-form{
     display: flex;
@@ -259,8 +240,9 @@ main:has(.edit-mainbox) {
     justify-content: center;
     align-items: center;
 }
-.login-formbox{
-    width: 300px;
+
+.login-formbox{   
+    width: 300px; 
 }
 
 main:has(.login-mainbox) {
@@ -268,7 +250,6 @@ main:has(.login-mainbox) {
     padding: 80px;
     top: 0;
     bottom: 0;
-    /* position: absolute; */
     width: 100%;
 }
 
@@ -276,40 +257,42 @@ main:has(.login-mainbox) {
 main:has(.login-mainbox) {
     margin-left: 0!important;
     margin-right: 0!important;
+} 
+
+.login-loginbox {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+    font-size: 20px;
+}
+
+@media (max-width: 576px) {
+    .login-mainbox {
+        margin-top: 3rem;
+    }
 }
 /*---register----*/
-.register-head{
-    font-size: 100px;
-    font-family: 'Anton', sans-serif;
-    margin-left: -30px;
-    font-weight: 400;
-}
-.register-mainbox{
-    background-image: url(../imgs/register-image.jpg);
-    background-size: contain; /* 背景画像を元の比率で表示 */
-    background-repeat: no-repeat; /* 背景画像の繰り返しを無効化 */
-    /* background-position: center; */
-    
-    background-size: 90%;
-    margin: 0;
-    height: 450px;
-    /* filter: blur(20px); */
 
+.register-mainbox{
+    padding: 100px;
 }
-/* .register-formbox{
-    width: 300px;
-} */
+
 .register-form{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
-    
+}
+.register-head{
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+.register-submitbox{
+   align-content: center;
 }
 
-
-.register-formbox{
     
 
 /* -----index------------------ */

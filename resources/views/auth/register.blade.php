@@ -2,11 +2,10 @@
 
 @section('content')
 <div class="container regsister-mainbox">
-    <h1 class="register-head">REGISTER</h1>
     <div class="row justify-content-center register-mainbox">
         <div class="col-md-8">
             <div class="card">
-                {{-- <div class="card-header">{{ __('Register') }}</div> --}}
+                <div class="card-header register-head">REGISTER</div>
                 <div class="card-body register-form">
                     <form method="POST" action="{{ route('register') }}" enctype='multipart/form-data' class="register-formbox">
                         @csrf
@@ -78,7 +77,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary register-submitbox">
                                     {{ __('Register') }}
                                 </button>
                             </div>
